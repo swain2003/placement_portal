@@ -1,6 +1,7 @@
 package com.placementportal.controller;
 
 import com.placementportal.dto.*;
+import com.placementportal.exception.BadRequestException;
 import com.placementportal.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,9 +41,13 @@ public class StudentController {
     @PostMapping("/resume")
     public ResponseEntity<ApiResponse<StudentProfileResponse>> uploadResume(Authentication authentication,
                                                                             @RequestParam("file") MultipartFile file) throws IOException {
-        String original = file.getOriginalFilename() == null ? "resume.pdf" : file.getOriginalFilename();
-        String ext = original.contains(".") ? original.substring(original.lastIndexOf('.')) : ".pdf";
-        String fileName = UUID.randomUUID() + ext;
+        if (file.isEmpty()) {
+            throw new BadRequestException("Resume file is required");
+        }
+        if (!"application/pdf".equalsIgnoreCase(file.getContentType())) {
+            throw new BadRequestException("Only PDF resumes are allowed");
+        }
+        String fileName = UUID.randomUUID() + ".pdf";
         Path uploadDir = Paths.get("uploads");
         Files.createDirectories(uploadDir);
         Files.write(uploadDir.resolve(fileName), file.getBytes());
