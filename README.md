@@ -136,7 +136,7 @@ placement_portal/
 │       ├── repository/
 │       ├── security/
 │       └── service/
-│
+|
 ├── frontend/
 │   ├── package.json
 │   └── src/
@@ -147,7 +147,10 @@ placement_portal/
 │       └── styles/
 │
 └── database/
-    └── schema.sql
+|   └── schema.sql
+|
+└── README.md
+
 ```
 
 ---
