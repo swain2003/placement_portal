@@ -32,6 +32,7 @@
 **Smart Student Placement Portal** is a full-stack web application designed to streamline and modernize campus recruitment workflows for **Students**, **Recruiters**, and **Administrators**.
 
 The platform enables:
+
 - Secure authentication and authorization
 - Student profile and resume management
 - Recruitment workflow automation
@@ -136,7 +137,7 @@ placement_portal/
 │       ├── repository/
 │       ├── security/
 │       └── service/
-|
+│
 ├── frontend/
 │   ├── package.json
 │   └── src/
@@ -146,11 +147,10 @@ placement_portal/
 │       ├── pages/
 │       └── styles/
 │
-└── database/
-|   └── schema.sql
-|
+├── database/
+│   └── schema.sql
+│
 └── README.md
-
 ```
 
 ---
@@ -275,6 +275,28 @@ jwt:
 
 ---
 
+## 🔧 Port Configuration Note
+
+> ⚠️ Make sure the backend port and frontend API URL remain consistent throughout the project configuration.
+>
+> If the backend runs on `8081`, then the frontend `.env` file should contain:
+>
+> ```env
+> VITE_API_URL=http://localhost:8081/api
+> ```
+>
+> If you change the backend port to `8080` or any other port, update the frontend API URL accordingly.
+>
+> Example:
+>
+> ```env
+> VITE_API_URL=http://localhost:8080/api
+> ```
+>
+> This ensures proper communication between the React frontend and Spring Boot backend.
+
+---
+
 # 4️⃣ Frontend Setup
 
 Open a NEW terminal.
@@ -318,6 +340,8 @@ npm run dev
 ```text
 http://localhost:5173
 ```
+
+> 💡 The frontend and backend ports must match the configured API URL to avoid authentication or API connection issues.
 
 ---
 
@@ -366,7 +390,8 @@ http://localhost:5173
 # 👨‍💻 Author
 
 ## Anubhaba Swain
-### B.Tech in Information Technology || KIIT UNIVERSITY
+
+### B.Tech in Information Technology | KIIT University
 
 🔗 LinkedIn: https://www.linkedin.com/in/anubhaba-swain-695a7b176
 
