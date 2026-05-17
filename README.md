@@ -76,41 +76,81 @@ placement_portal/
 
 ## Setup Instructions
 
-## 1) MySQL
+### Prerequisites
 
-Create DB and schema:
+- Java 17
+- Maven 3.9+
+- Node.js 18+ with npm
+- MySQL 8+
+
+### 1) Clone the repository
 
 ```bash
-mysql -u root -p < /home/runner/work/placement_portal/placement_portal/database/schema.sql
+git clone https://github.com/swain2003/placement_portal.git
+cd placement_portal
 ```
 
-## 2) Backend
+### 2) MySQL
+
+Create the database and schema (optional but recommended for a clean start):
 
 ```bash
-cd /home/runner/work/placement_portal/placement_portal/backend
+mysql -u root -p < database/schema.sql
+```
+
+If you prefer, you can skip the schema import and let Spring Boot create tables automatically on first run.
+
+### 3) Backend
+
+Configure environment variables (defaults are shown):
+
+```bash
+export DB_HOST=localhost
+export DB_PORT=3306
+export DB_NAME=placement_portal
+export DB_USER=root
+export DB_PASSWORD=root
+export JWT_SECRET=change-this-secret-key-which-needs-at-least-32-bytes
+```
+
+Run the backend:
+
+```bash
+cd backend
 mvn spring-boot:run
 ```
 
-Optional env vars:
-- `DB_HOST` (default `localhost`)
-- `DB_PORT` (default `3306`)
-- `DB_NAME` (default `placement_portal`)
-- `DB_USER` (default `root`)
-- `DB_PASSWORD` (default `root`)
-- `JWT_SECRET` (must be 32+ chars)
-
-Backend URL: `http://localhost:8080`
+Backend URL: `http://localhost:8080`  
 Swagger: `http://localhost:8080/swagger-ui.html`
 
-## 3) Frontend
+### 4) Frontend
+
+Optionally set the API base URL (defaults to `http://localhost:8080/api`):
 
 ```bash
-cd /home/runner/work/placement_portal/placement_portal/frontend
+cat <<EOF > frontend/.env
+VITE_API_URL=http://localhost:8080/api
+EOF
+```
+
+Install dependencies and run the frontend:
+
+```bash
+cd frontend
 npm install
 npm run dev
 ```
 
 Frontend URL: `http://localhost:5173`
+
+### 5) (Optional) Build & Test
+
+```bash
+cd backend
+mvn test
+cd ../frontend
+npm run build
+```
 
 ---
 
