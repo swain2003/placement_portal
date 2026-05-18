@@ -139,6 +139,7 @@ placement_portal/
 │       └── service/
 │
 ├── frontend/
+|   ├── .env
 │   ├── package.json
 │   └── src/
 │       ├── api/
