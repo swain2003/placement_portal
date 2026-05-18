@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${MYSQL_ADDON_URI}
+    url: jdbc:${MYSQL_ADDON_URI}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
