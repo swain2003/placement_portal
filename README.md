@@ -322,24 +322,12 @@ npm run dev
 
 ---
 
-# 📸 Project Screenshots
-
-| Login Page | Dashboard |
-|---|---|
-| Add Screenshot Here | Add Screenshot Here |
-
-| Recruiter Panel | Analytics Dashboard |
-|---|---|
-| Add Screenshot Here | Add Screenshot Here |
-
----
-
 # ☁️ Deployment
 
 | Service | Platform |
 |---|---|
 | Frontend | Vercel |
-| Backend | Spring Boot |
+| Backend | Render |
 | Database | MySQL |
 
 ---
