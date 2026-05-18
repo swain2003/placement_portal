@@ -9,9 +9,6 @@
 🚀 **Live Demo**  
 https://placement-portal-teal-two.vercel.app/
 
-📂 **GitHub Repository**  
-https://github.com/swain2003/placement_portal
-
 <br>
 
 ![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk)
