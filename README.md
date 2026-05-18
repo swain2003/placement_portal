@@ -6,13 +6,20 @@
 
 <br>
 
+🚀 **Live Demo**  
+https://placement-portal-teal-two.vercel.app/
+
+📂 **GitHub Repository**  
+https://github.com/swain2003/placement_portal
+
+<br>
+
 ![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk)
 ![Spring Boot](https://img.shields.io/badge/SpringBoot-Backend-green?style=for-the-badge&logo=springboot)
-![Spring REST](https://img.shields.io/badge/SpringREST-API-success?style=for-the-badge)
 ![Spring Security](https://img.shields.io/badge/SpringSecurity-JWT-darkgreen?style=for-the-badge&logo=springsecurity)
-![Spring Data JPA](https://img.shields.io/badge/SpringDataJPA-Hibernate-brightgreen?style=for-the-badge)
-
+![Spring REST](https://img.shields.io/badge/SpringREST-API-success?style=for-the-badge)
 ![Hibernate](https://img.shields.io/badge/Hibernate-ORM-brown?style=for-the-badge&logo=hibernate)
+
 ![React](https://img.shields.io/badge/React-Frontend-blue?style=for-the-badge&logo=react)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?style=for-the-badge&logo=javascript)
 ![HTML5](https://img.shields.io/badge/HTML5-Markup-orange?style=for-the-badge&logo=html5)
@@ -29,57 +36,43 @@
 
 # 📌 Overview
 
-**Smart Student Placement Portal** is a full-stack web application designed to streamline and modernize campus recruitment workflows for **Students**, **Recruiters**, and **Administrators**.
+Smart Student Placement Portal is a full-stack web application developed to simplify and modernize campus recruitment workflows for students, recruiters, and administrators.
 
-The platform enables:
+The platform enables students to create profiles, upload resumes, apply for jobs and internships, and track applications. Recruiters can manage hiring workflows, post opportunities, and review applicants, while administrators can monitor the entire placement process through centralized dashboards and analytics.
 
-- Secure authentication and authorization
-- Student profile and resume management
-- Recruitment workflow automation
-- Job and internship management
-- Application tracking
-- Placement analytics dashboard
-- Skill-based hiring workflows
-
-Built using modern enterprise-grade technologies including **React**, **Spring Boot**, **Java**, and **MySQL**.
+Built using modern enterprise-grade technologies including React, Spring Boot, Java, and MySQL.
 
 ---
 
-# 🚀 Key Features
+# 🌟 Features
 
----
-
-## 🔐 Authentication & Authorization
+## 🔐 Authentication & Security
 
 - JWT-based secure authentication
-- Student Registration
-- Recruiter Registration
-- Admin Login
-- BCrypt password hashing
 - Role-Based Access Control (RBAC)
-- Protected APIs with Spring Security
+- Secure login and registration system
+- BCrypt password hashing
+- Protected APIs using Spring Security
 
 ---
 
 ## 👨‍🎓 Student Module
 
-- Update student profile
-- Add skills, CGPA, branch & graduation year
-- Upload resume (PDF)
-- Browse jobs and internships
-- Apply for opportunities
+- Student profile management
+- Resume upload functionality
+- Apply for jobs and internships
 - Track application status
-- Student dashboard metrics
+- Skill and academic details management
+- Personalized student dashboard
 
 ---
 
 ## 🏢 Recruiter Module
 
-- Manage recruiter/company profile
-- Post jobs and internships
-- Update or close job listings
-- View applicants for each job
-- Shortlist / reject / select candidates
+- Recruiter/company profile management
+- Post and manage job opportunities
+- View applicants
+- Shortlist or reject candidates
 - Resume download support
 
 ---
@@ -87,22 +80,21 @@ Built using modern enterprise-grade technologies including **React**, **Spring B
 ## 🛠️ Admin Module
 
 - Manage students and recruiters
-- View all jobs and applications
 - Monitor platform activity
-- Close jobs
-- View analytics dashboard
+- Manage job postings
+- Placement analytics dashboard
 - Skill trend analysis
 
 ---
 
-## 📊 Advanced Features
+## 📊 Additional Features
 
-- Placement analytics dashboard
-- Skill trend charts using Recharts
-- Skill-based matching foundation
-- Swagger API documentation
-- Dark/Light mode support
 - Responsive UI design
+- RESTful API architecture
+- Swagger API documentation
+- Enterprise layered backend architecture
+- Dark/Light mode support
+- Secure database integration
 
 ---
 
@@ -110,13 +102,30 @@ Built using modern enterprise-grade technologies including **React**, **Spring B
 
 | Category | Technologies |
 |---|---|
-| Frontend | React.js, JavaScript, HTML5, CSS3, Axios, React Router, Recharts |
-| Backend | Java 17, Spring Boot 3, Spring Security, Spring REST |
+| Frontend | React.js, JavaScript, HTML5, CSS3, Axios |
+| Backend | Java 17, Spring Boot 3, Spring Security |
 | Database | MySQL |
 | ORM | Hibernate, Spring Data JPA |
 | Authentication | JWT Authentication, BCrypt |
 | Build Tools | Maven, npm |
-| API Documentation | Swagger (springdoc-openapi) |
+| API Documentation | Swagger OpenAPI |
+| Deployment | Vercel |
+
+---
+
+# 🏗️ System Architecture
+
+```text
+Frontend (React.js)
+        ↓
+REST APIs (Spring Boot)
+        ↓
+Service Layer
+        ↓
+Hibernate / JPA
+        ↓
+MySQL Database
+```
 
 ---
 
@@ -124,43 +133,64 @@ Built using modern enterprise-grade technologies including **React**, **Spring B
 
 ```text
 placement_portal/
+│
 ├── backend/
-│   ├── pom.xml
+│   ├── .mvn/
+│   │   └── wrapper/
+│   │
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/placementportal/
+│   │   │   │   ├── config/
+│   │   │   │   ├── controller/
+│   │   │   │   ├── dto/
+│   │   │   │   ├── entity/
+│   │   │   │   ├── exception/
+│   │   │   │   ├── repository/
+│   │   │   │   ├── security/
+│   │   │   │   ├── service/
+│   │   │   │   └── PlacementPortalApplication.java
+│   │   │   │
+│   │   │   └── resources/
+│   │   │       └── application.yml
+│   │   │
+│   │   └── test/
+│   │
+│   ├── Dockerfile
 │   ├── mvnw
 │   ├── mvnw.cmd
-│   └── src/main/java/com/placementportal/
-│       ├── config/
-│       ├── controller/
-│       ├── dto/
-│       ├── entity/
-│       ├── exception/
-│       ├── repository/
-│       ├── security/
-│       └── service/
-│
-├── frontend/
-|   ├── .env
-│   ├── package.json
-│   └── src/
-│       ├── api/
-│       ├── components/
-│       ├── context/
-│       ├── pages/
-│       └── styles/
+│   └── pom.xml
 │
 ├── database/
 │   └── schema.sql
 │
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   │
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── vercel.json
+│   └── vite.config.js
+│
+├── .gitignore
 └── README.md
 ```
 
 ---
 
-# ⚙️ Installation & Setup Guide
+# ⚙️ Installation & Setup
 
 ## 📌 Prerequisites
 
-Make sure the following are installed:
+Ensure the following are installed:
 
 - Java 17+
 - Node.js 18+
@@ -180,9 +210,9 @@ cd placement_portal
 
 ---
 
-# 2️⃣ Configure MySQL Database
+# 2️⃣ Configure Database
 
-## Open MySQL
+Open MySQL:
 
 ```bash
 mysql -u root -p
@@ -192,12 +222,6 @@ Create database:
 
 ```sql
 CREATE DATABASE placement_portal;
-```
-
-Exit MySQL:
-
-```sql
-exit;
 ```
 
 (Optional) Import schema:
@@ -210,23 +234,13 @@ mysql -u root -p placement_portal < database/schema.sql
 
 # 3️⃣ Backend Setup
 
-Navigate to backend folder:
+Navigate to backend:
 
 ```bash
 cd backend
 ```
 
----
-
-## Configure Database Credentials
-
-Open:
-
-```text
-backend/src/main/resources/application.yml
-```
-
-Update the database credentials:
+Update `application.yml`:
 
 ```yaml
 spring:
@@ -236,22 +250,14 @@ spring:
     password: YOUR_PASSWORD
 ```
 
----
-
-## Configure JWT Secret
-
-Inside the same file:
+Configure JWT secret:
 
 ```yaml
 jwt:
   secret: mysupersecurejwtsecretkeyforplacementportal2026
 ```
 
-⚠️ JWT secret must be at least 32 bytes long.
-
----
-
-## Run Backend Server
+Run backend server:
 
 ### Windows
 
@@ -267,68 +273,21 @@ jwt:
 
 ---
 
-## Backend URLs
-
-| Service | URL |
-|---|---|
-| Backend API | http://localhost:8081 |
-| Swagger Documentation | http://localhost:8081/swagger-ui/index.html |
-
----
-
-## 🔧 Port Configuration Note
-
-> ⚠️ Make sure the backend port and frontend API URL remain consistent throughout the project configuration.
->
-> If the backend runs on `8081`, then the frontend `.env` file should contain:
->
-> ```env
-> VITE_API_URL=http://localhost:8081/api
-> ```
->
-> If you change the backend port to `8080` or any other port, update the frontend API URL accordingly.
->
-> Example:
->
-> ```env
-> VITE_API_URL=http://localhost:8080/api
-> ```
->
-> This ensures proper communication between the React frontend and Spring Boot backend.
-
----
-
 # 4️⃣ Frontend Setup
 
-Open a NEW terminal.
-
-Navigate to frontend:
+Open a new terminal:
 
 ```bash
 cd frontend
 ```
 
----
-
-## Install Dependencies
+Install dependencies:
 
 ```bash
 npm install
 ```
 
----
-
-## Configure Frontend Environment
-
-Create a `.env` file inside `frontend`:
-
-```env
-VITE_API_URL=http://localhost:8081/api
-```
-
----
-
-## Start Frontend
+Start frontend:
 
 ```bash
 npm run dev
@@ -336,23 +295,14 @@ npm run dev
 
 ---
 
-## Frontend URL
+# 🌐 Application URLs
 
-```text
-http://localhost:5173
-```
-
-> 💡 The frontend and backend ports must match the configured API URL to avoid authentication or API connection issues.
-
----
-
-# 🧪 Sample Accounts
-
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@portal.com | Admin@123 |
-| Recruiter | recruiter@company.com | Recruiter@123 |
-| Student | student@college.com | Student@123 |
+| Service | URL |
+|---|---|
+| Frontend | http://localhost:5173 |
+| Backend API | http://localhost:8081 |
+| Swagger UI | http://localhost:8081/swagger-ui/index.html |
+| Live Deployment | https://placement-portal-teal-two.vercel.app/ |
 
 ---
 
@@ -365,7 +315,6 @@ http://localhost:5173
 | POST | `/api/auth/register/recruiter` |
 | GET | `/api/students/profile` |
 | POST | `/api/students/resume` |
-| POST | `/api/students/jobs/{jobId}/apply` |
 | POST | `/api/recruiters/jobs` |
 | GET | `/api/recruiters/jobs/{jobId}/applicants` |
 | PATCH | `/api/recruiters/applications/{applicationId}` |
@@ -373,18 +322,52 @@ http://localhost:5173
 
 ---
 
-# 📈 Highlights
+# 📸 Project Screenshots
+
+| Login Page | Dashboard |
+|---|---|
+| Add Screenshot Here | Add Screenshot Here |
+
+| Recruiter Panel | Analytics Dashboard |
+|---|---|
+| Add Screenshot Here | Add Screenshot Here |
+
+---
+
+# ☁️ Deployment
+
+| Service | Platform |
+|---|---|
+| Frontend | Vercel |
+| Backend | Spring Boot |
+| Database | MySQL |
+
+---
+
+# 💡 Resume Highlights
 
 ✅ Full-Stack Enterprise Architecture  
-✅ RESTful API Design  
 ✅ JWT Authentication & Authorization  
 ✅ Role-Based Access Control  
+✅ RESTful API Design  
 ✅ Responsive Frontend UI  
-✅ Secure Password Hashing  
-✅ Database Integration with MySQL  
+✅ Resume Upload Workflow  
+✅ Placement Workflow Automation  
+✅ MySQL Database Integration  
 ✅ Swagger API Documentation  
+✅ Secure Password Hashing  
 ✅ Production-Oriented Project Structure  
-✅ Resume Upload & Recruitment Workflow Automation  
+
+---
+
+# 🚀 Future Enhancements
+
+- AI-based resume screening
+- Email notifications
+- Interview scheduling
+- Real-time recruiter chat
+- Placement prediction analytics
+- Resume parsing using AI
 
 ---
 
@@ -392,9 +375,13 @@ http://localhost:5173
 
 ## Anubhaba Swain
 
-### B.Tech in Information Technology | KIIT University
+### B.Tech in Information Technology || KIIT UNIVERSITY
 
-🔗 LinkedIn: https://www.linkedin.com/in/anubhaba-swain-695a7b176
+🔗 LinkedIn  
+https://www.linkedin.com/in/anubhaba-swain-695a7b176
+
+💻 GitHub  
+https://github.com/swain2003
 
 ---
 
